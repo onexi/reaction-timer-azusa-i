@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // Serve the web page with the form
 app.get('/', function(req, res) {
-    let userList = users.map(user => `<li>Name: ${user.name} "   " Time: ${user.time}</li>`).join('');
+    let userList = users.map(user => `<li>Name: ${user.name} Time: ${user.reactionTime}</li>`).join('');
     
     res.send(`
         <!DOCTYPE html>
@@ -46,12 +46,10 @@ app.get('/', function(req, res) {
             <script>
                 function startAction() {
                     startTime = new Date();
-                //    alert('Start button clicked at ' + startTime);                
                 }
                 function stopAction() {
                     stopTime = new Date();
                     let reactionTime = stopTime - startTime;
-                //    alert('Stop button clicked at ' + stopTime + '. Reaction time: ' + reactionTime + ' milliseconds');
                     }
             </script>
         </body>
