@@ -45,14 +45,12 @@ app.get('/', function(req, res) {
 
             <script>
                 function startAction() {
-                    alert('Start button clicked');
-                    // Add your start action logic here
-                    start
+                    startTime = new Date();
+                    alert('Start button clicked at ' + startTime);                
                 }
                 function stopAction() {
-                    alert('Stop button clicked');
-                    // Add your stop action logic here
-                    stop
+                    stopTime = new Date();
+                    alert('Stop button clicked at ' + stopTime);
                 }
             </script>
         </body>
