@@ -6,6 +6,9 @@ const PORT = process.env.PORT || 3030;
 const path = require('path');
 // these are some of the libraries you will need
 
+app.get('/', function(req, res) {
+    res.send('<h1> Add a Reaction Time! </h1>');
+
 // Array to store names and emails
 let users = [];
 
