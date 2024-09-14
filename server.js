@@ -28,7 +28,7 @@ app.get('/', function(req, res) {
                     color: white;
                 }
                 .stop-button {
-                    background-color: red;
+                    background-color: darkred;
                     color: white;
                 }
             </style>
