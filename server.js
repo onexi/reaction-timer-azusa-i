@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // Serve the web page with the form
 app.get('/', function(req, res) {
-    let userList = users.map(user => `<li>Name: ${user.name}     Time: ${user.time}</li>`).join('');
+    let userList = users.map(user => `<li>Name: ${user.name} "   " Time: ${user.time}</li>`).join('');
     
     res.send(`
         <!DOCTYPE html>
