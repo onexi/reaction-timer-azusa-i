@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // Serve the web page with the form
 app.get('/', function(req, res) {
-    let userList = users.map(user => `<li>${user.name} (${user.email})</li>`).join('');
+    let userList = users.map(user => `<li>${user.name}</li>`).join('');
     
     res.send(`
         <!DOCTYPE html>
@@ -29,9 +29,6 @@ app.get('/', function(req, res) {
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
                 <br><br>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-                <br><br>
                 <button type="submit">Submit</button>
             </form>
             <h2>Submitted Users:</h2>
@@ -44,10 +41,9 @@ app.get('/', function(req, res) {
 // Handle the form submission
 app.post('/input', function(req, res){
     const name = escape(req.body.name);
-    const email = escape(req.body.email);
 
     // Add the new user to the array
-    users.push({ name: name, email: email });
+    users.push({ name: name });
 
     // If you were to make alphabetical, add here
 
