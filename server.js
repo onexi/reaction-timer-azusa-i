@@ -21,7 +21,7 @@ app.get('/', function(req, res) {
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Add a Reaction Time</title>
+            <title>Add a Reaction Time!</title>
             <style>
                 Button {
                     background-color: red;
