@@ -41,7 +41,6 @@ app.get('/', function(req, res) {
                 <button type="submit" class="stop-button" onclick="stopAction()">Stop</button>                
             </form>
             <h2>Times</h2>
-//            <ul>${userList}</ul>
 
             <script>
                 function startAction() {
