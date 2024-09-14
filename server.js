@@ -24,7 +24,7 @@ app.get('/', function(req, res) {
             <title>Submit Your Details</title>
         </head>
         <body>
-            <h1>Enter Name and Email</h1>
+            <h1>Add a Reaction Time</h1>
             <form action="/input" method="POST">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
