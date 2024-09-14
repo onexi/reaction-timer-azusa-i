@@ -37,11 +37,25 @@ app.get('/', function(req, res) {
             <h1>Add a Reaction Time</h1>
             <form action="/input" method="POST">
             <input type="text" id="name" name="name" required>
-                <button type="submit" class="start-button">Start</button>
-                <button type="submit" class="stop-button">Stop</button>                
+                <button type="submit" class="start-button" onclick="startAction()>Start</button>
+                <button type="submit" class="stop-button" onclick="stopAction()>Stop</button>                
             </form>
-            <h2>Times:</h2>
+            <h2>Times</h2>
             <ul>${userList}</ul>
+
+            <script>
+                function startAction() {
+                    alert('Start button clicked');
+                    // Add your start action logic here
+                    start
+                }
+
+                function stopAction() {
+                    alert('Stop button clicked');
+                    // Add your stop action logic here
+                    stop
+                }
+            </script>
         </body>
         </html>
     `);
