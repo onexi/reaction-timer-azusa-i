@@ -47,13 +47,10 @@ app.get('/', function(req, res) {
                 function startAction() {
                     alert('Start button clicked');
                     // Add your start action logic here
-                    start
                 }
-
                 function stopAction() {
                     alert('Stop button clicked');
                     // Add your stop action logic here
-                    stop
                 }
             </script>
         </body>
