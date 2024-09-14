@@ -26,8 +26,7 @@ app.get('/', function(req, res) {
         <body>
             <h1>Add a Reaction Time</h1>
             <form action="/input" method="POST">
-//                <label for="name">Name:</label> 
-                <input type="text" id="name" name="name" required>
+            <input type="text" id="name" name="name" required>
                 <button type="submit">Start</button>
                 <button type="submit">Stop</button>                
                 <br><br>
