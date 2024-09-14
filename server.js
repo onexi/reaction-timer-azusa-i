@@ -50,8 +50,9 @@ app.get('/', function(req, res) {
                 }
                 function stopAction() {
                     stopTime = new Date();
-                    alert('Stop button clicked at ' + stopTime);
-                }
+                    let reactionTime = stopTime - startTime;
+                    alert('Stop button clicked at ' + stopTime + '. Reaction time: ' + reactionTime + ' milliseconds');
+                    }
             </script>
         </body>
         </html>
