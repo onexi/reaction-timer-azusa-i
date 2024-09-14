@@ -6,19 +6,14 @@ const PORT = process.env.PORT || 3030;
 const path = require('path');
 // these are some of the libraries you will need
 
-// Array to store names
+// Array to store names and emails
 let users = [];
-
-// // Title of page
-// app.get('/', function(req, res) {
-//     res.send('<h1> Add a Reaction Time </h1>');
-// });
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Serve the web page with the form
 app.get('/', function(req, res) {
-    let userList = users.map(user => `<li>${user.name} </li>`).join('');
+    let userList = users.map(user => `<li>${user.name} (${user.email})</li>`).join('');
     
     res.send(`
         <!DOCTYPE html>
@@ -29,10 +24,13 @@ app.get('/', function(req, res) {
             <title>Submit Your Details</title>
         </head>
         <body>
-            <h1>Enter Name</h1>
+            <h1>Enter Name and Email</h1>
             <form action="/input" method="POST">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
+                <br><br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
                 <br><br>
                 <button type="submit">Submit</button>
             </form>
@@ -46,9 +44,10 @@ app.get('/', function(req, res) {
 // Handle the form submission
 app.post('/input', function(req, res){
     const name = escape(req.body.name);
+    const email = escape(req.body.email);
 
     // Add the new user to the array
-    users.push({ name: name });
+    users.push({ name: name, email: email });
 
     // If you were to make alphabetical, add here
 
