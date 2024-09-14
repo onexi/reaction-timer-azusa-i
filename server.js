@@ -33,7 +33,7 @@ app.get('/', function(req, res) {
                 <br><br>
                 <button type="submit">Submit</button>
             </form>
-            <h2>Submitted Users:</h2>
+            <h2>Times:</h2>
             <ul>${userList}</ul>
         </body>
         </html>
