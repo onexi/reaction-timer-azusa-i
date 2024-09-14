@@ -22,6 +22,12 @@ app.get('/', function(req, res) {
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>Add a Reaction Time</title>
+            <style>
+                button {
+                    background-color: red;
+                    color: white;
+                }
+            </style>
         </head>
         <body>
             <h1>Add a Reaction Time</h1>
@@ -31,7 +37,7 @@ app.get('/', function(req, res) {
                 <button type="submit">Stop</button>                
             </form>
             <h2>Times:</h2>
-            <ul>Name:${userList}</ul>
+            <ul>${userList}</ul>
         </body>
         </html>
     `);
