@@ -6,9 +6,6 @@ const PORT = process.env.PORT || 3030;
 const path = require('path');
 // these are some of the libraries you will need
 
-app.get('/', function(req, res) {
-    res.send('<h1> Add a Reaction Time! </h1>');
-
 // Array to store names and emails
 let users = [];
 
@@ -16,6 +13,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // Serve the web page with the form
 app.get('/', function(req, res) {
+    res.send('<h1> Add a Reaction Time! </h1>');
     let userList = users.map(user => `<li>${user.name}</li>`).join('');
     
     res.send(`
