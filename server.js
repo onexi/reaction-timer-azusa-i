@@ -42,6 +42,7 @@ app.get('/', function(req, res) {
             </form>
             <h2>Times</h2>
             <ul>${userList}</ul>
+            <p id="reactionTimeDisplay"></p>            
 
             <script>
                 function startAction() {
