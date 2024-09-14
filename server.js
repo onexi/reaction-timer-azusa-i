@@ -23,22 +23,22 @@ app.get('/', function(req, res) {
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>Add a Reaction Time</title>
             <style>
-                Button {
-                    background-color: red;
+                .start-button {
+                    background-color: green;
                     color: white;
                 }
-                Button {
-                    background-color: green;
+                .stop-button {
+                    background-color: red;
                     color: white;
                 }
             </style>
         </head>
         <body>
-            <h1>Add a Reaction Time!</h1>
+            <h1>Add a Reaction Time</h1>
             <form action="/input" method="POST">
             <input type="text" id="name" name="name" required>
-                <button type="submit">Start</button>
-                <button type="submit">Stop</button>                
+                <button type="submit" class="start-button">Start</button>
+                <button type="submit" class="stop-button">Stop</button>                
             </form>
             <h2>Times:</h2>
             <ul>${userList}</ul>
