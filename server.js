@@ -7,7 +7,7 @@ const path = require('path');
 // these are some of the libraries you will need
 
 app.get('/', function(req, res) {
-    res.send('<h1> Hello World! </h1>');
+    res.send('<h1> Add a Reaction Time </h1>');
 });
 
 app.listen(3000);
