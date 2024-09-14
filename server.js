@@ -14,6 +14,8 @@ app.get('/', function(req, res) {
 // Array to store names
 let users = [];
 
+app.use(bodyParser.urlencoded({ extended: true }));
+
 // Serve the web page with the form
 app.get('/', function(req, res) {
     let userList = users.map(user => `<li>${user.name} </li>`).join('');
