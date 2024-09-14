@@ -29,8 +29,6 @@ app.get('/', function(req, res) {
             <input type="text" id="name" name="name" required>
                 <button type="submit">Start</button>
                 <button type="submit">Stop</button>                
-                <br><br>
-                <button type="submit">Submit</button>
             </form>
             <h2>Times:</h2>
             <ul>${userList}</ul>
