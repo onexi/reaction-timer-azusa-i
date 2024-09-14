@@ -40,7 +40,6 @@ app.get('/', function(req, res) {
                 <button type="submit" class="start-button" onclick="startAction()">Start</button>
                 <button type="submit" class="stop-button" onclick="stopAction()">Stop</button>                
             </form>
-            <h2>Times</h2>
 
             <script>
                 function startAction() {
@@ -49,6 +48,8 @@ app.get('/', function(req, res) {
                 function stopAction() {
                     stopTime = new Date();
                     let reactionTime = stopTime - startTime;
+                    <h2>Times</h2>
+                    <ul>${userList}</ul>                    
                     }
             </script>
         </body>
