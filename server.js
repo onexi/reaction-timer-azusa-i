@@ -56,5 +56,6 @@ app.post('/input', function(req, res){
     res.redirect('/');
 });
 
-app.listen(3000);
-console.log("Running on port 3000");
+// Start the server
+app.listen(3030);
+console.log("Running on port 3030");
