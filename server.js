@@ -6,13 +6,13 @@ const PORT = process.env.PORT || 3030;
 const path = require('path');
 // these are some of the libraries you will need
 
-// Title of page
-app.get('/', function(req, res) {
-    res.send('<h1> Add a Reaction Time </h1>');
-});
-
 // Array to store names
 let users = [];
+
+// // Title of page
+// app.get('/', function(req, res) {
+//     res.send('<h1> Add a Reaction Time </h1>');
+// });
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
