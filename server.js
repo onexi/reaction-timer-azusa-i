@@ -63,7 +63,7 @@ app.get('/', function(req, res) {
                     reactionTimeInput.value = reactionTime;                    
                     startButton.disabled = false;
                     stopButton.disabled = true;  
-                    console.log(`Reaction time: ${reactionTime} ms`);  // Added console.log to print reactionTime
+                    console.log(${reactionTime};  // Added console.log to print reactionTime
                 });                               
             </script>
         </body>
