@@ -47,13 +47,13 @@ app.get('/', function(req, res) {
 
             <script>
                 function startAction() {
-                    startTime = new Date();
+                    let startTime = new Date();
                     startButton.disabled = true;
                     stopButton.disabled = false;
                     'Timer started... Click stop to get the reaction time.';
                 }
                 function stopAction() {
-                    stopTime = new Date();
+                    let stopTime = new Date();
                     let reactionTime = stopTime - startTime;  
                     'Reaction time: ${reactionTime} ms';
                     startButton.disabled = false;
