@@ -40,7 +40,7 @@ app.get('/', function(req, res) {
             <form action="/input" method="POST">
             <input type="text" id="name" name="name" required>
                 <button id="startButton" class="start-button" onclick="startAction()">Start</button>
-                <button id="startButton" disabled class="stop-button" onclick="stopAction()">Stop</button>                
+                <button id="stopButton" disabled class="stop-button" onclick="stopAction()">Stop</button>                
             </form>
             <h2>Times</h2>
             <ul>${userList}</ul>   
