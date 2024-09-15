@@ -52,7 +52,7 @@ app.get('/', function(req, res) {
                 }
                 function stopAction() {
                     let stopTime = new Date();
-                    let ${user.reactionTime} = stopTime - startTime;  
+                    const reactionTime = stopTime - startTime;  
                     resultDisplay.textContent = 'Reaction time: ${reactionTime} ms';
                     startButton.disabled = false;
                     stopButton.disabled = true;               
