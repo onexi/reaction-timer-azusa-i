@@ -46,6 +46,7 @@ app.get('/', function(req, res) {
             <ul>${userList}</ul>   
 
             <script>
+                let startTime;
                 function startAction() {
                     let startTime = new Date();
                     startButton.disabled = true;
