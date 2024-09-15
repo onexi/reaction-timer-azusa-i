@@ -48,12 +48,12 @@ app.get('/', function(req, res) {
                     startTime = new Date();
                     startButton.disabled = true;
                     stopButton.disabled = false;
-                    resultDisplay.textContent = 'Timer started... Click stop to get the reaction time.';
+                    'Timer started... Click stop to get the reaction time.';
                 }
                 function stopAction() {
                     stopTime = new Date();
                     let reactionTime = stopTime - startTime;  
-                    resultDisplay.textContent = `Reaction time: ${reactionTime} ms`;
+                    'Reaction time: ${reactionTime} ms';
                     startButton.disabled = false;
                     stopButton.disabled = true;               
                 }
