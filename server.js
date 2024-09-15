@@ -50,7 +50,7 @@ app.get('/', function(req, res) {
                     let startTime = new Date();
                     startButton.disabled = true;
                     stopButton.disabled = false;
-                    resultDisplay.textContent = 'Timer started... Click stop to get the reaction time.';
+                    'Timer started... Click stop to get the reaction time.';
                 }
                 function stopAction() {
                     let stopTime = new Date();
