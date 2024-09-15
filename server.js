@@ -8,6 +8,7 @@ const path = require('path');
 
 // Array to store names and emails
 let users = [];
+let reactionTime = [];
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -52,7 +53,7 @@ app.get('/', function(req, res) {
                 }
                 function stopAction() {
                     let stopTime = new Date();
-                    const reactionTime = stopTime - startTime;  
+                    let reactionTime = stopTime - startTime;  
                     resultDisplay.textContent = 'Reaction time: ${reactionTime} ms';
                     startButton.disabled = false;
                     stopButton.disabled = true;               
