@@ -55,7 +55,6 @@ app.get('/', function(req, res) {
                     let startTime = new Date();
                     startButton.disabled = true;
                     stopButton.disabled = false;
-                    document.getElementById('messageDisplay').textContent = 'Timer started... Click stop to get the reaction time.';
                 });
 
                 stopButton.addEventListener('click', function() {                
@@ -64,7 +63,6 @@ app.get('/', function(req, res) {
                     reactionTimeInput.value = reactionTime;                    
                     startButton.disabled = false;
                     stopButton.disabled = true;    
-                    document.getElementById('messageDisplay').textContent = `Reaction time: ${reactionTime} ms`;
                 });                               
             </script>
         </body>
