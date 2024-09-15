@@ -6,9 +6,6 @@ const PORT = process.env.PORT || 3030;
 const path = require('path');
 // these are some of the libraries you will need
 
-const resultDisplay = document.getElementById('result');
-let reactionTime = [];
-
 // Array to store names and emails
 let users = [];
 
@@ -55,7 +52,7 @@ app.get('/', function(req, res) {
                 }
                 function stopAction() {
                     let stopTime = new Date();
-                    let reactionTime = stopTime - startTime;  
+                    let user.reactionTime = stopTime - startTime;  
                     resultDisplay.textContent = 'Reaction time: ${reactionTime} ms';
                     startButton.disabled = false;
                     stopButton.disabled = true;               
