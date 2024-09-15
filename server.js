@@ -37,35 +37,21 @@ app.get('/', function(req, res) {
             <h1>Reaction Timer</h1>
             <form action="/input" method="POST">
             <input type="text" id="name" name="name" required>
-                <button id="startButton" class="start-button">Start</button>
-                <button id="stopButton" disabled class="stop-button">Stop</button>                
+                <button type="submit" class="start-button" onclick="startAction()">Start</button>
+                <button type="submit" class="stop-button" onclick="stopAction()">Stop</button>                
             </form>
             <h2>Times</h2>
             <ul>${userList}</ul>   
 
             <script>
-                let startTime;
-                let endTime;
-
-                const startButton = document.getElementById('startButton');
-                const stopButton = document.getElementById('stopButton');
-                const resultDisplay = document.getElementById('result');
-
-                startButton.addEventListener('click', function() {
+                function startAction() {
                     startTime = new Date();
-                    startButton.disabled = true;
-                    stopButton.disabled = false;
-                    resultDisplay.textContent = 'Timer started... Click stop to get the reaction time.';
-                });
-
-                stopButton.addEventListener('click', function() {
-                    endTime = new Date();
-                    const reactionTime = endTime - startTime; // Calculate the reaction time in milliseconds
-                    resultDisplay.textContent = `Reaction time: ${reactionTime} ms`;
-                    startButton.disabled = false;
-                    stopButton.disabled = true;
-                });
-                </script>
+                }
+                function stopAction() {
+                    stopTime = new Date();
+                    let reactionTime = stopTime - startTime;                 
+                    }
+            </script>
         </body>
         </html>
     `);
