@@ -43,11 +43,10 @@ app.get('/', function(req, res) {
                 <input type="hidden" name="reactionTime" id="reactionTime">               
             </form>
             <h2>Records</h2>
-            <ul>id=${userList}</ul>   
+            <ul>{userList}</ul>   
 
             <script>
                 let startTime;
-                let userList = ''; 
                 const startButton = document.getElementById('startButton');
                 const stopButton = document.getElementById('stopButton');
                 const reactionTimeInput = document.getElementById('reactionTime');
@@ -66,11 +65,8 @@ app.get('/', function(req, res) {
                     stopButton.disabled = true;  
                     console.log(reactionTime);  // Added console.log to print reactionTime
 
-                    // Append the reaction time to userList
-                    userList += `<li>${reactionTime} ms</li>`;
-                    userListElement.innerHTML = userList;  // Update the ul element with the new userList 
-
-                });                               
+                    ${user.reactionTime} = reactionTime; // Added this line to store reactionTime in user object
+                    });                               
             </script>
         </body>
         </html>
