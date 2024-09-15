@@ -43,6 +43,7 @@ app.get('/', function(req, res) {
                 <input type="hidden" name="reactionTime" id="reactionTime">               
             </form>
             <h2>Records</h2>
+            ${user.reactionTime}
             <ul>${userList}</ul>   
 
             <script>
@@ -64,8 +65,6 @@ app.get('/', function(req, res) {
                     startButton.disabled = false;
                     stopButton.disabled = true;  
                     console.log(reactionTime);  // Added console.log to print reactionTime
-
-                    let ${user.reactionTime} = reactionTime; // Added this line to store reactionTime in user object
                 });                               
             </script>
         </body>
