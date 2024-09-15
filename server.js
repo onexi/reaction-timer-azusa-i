@@ -43,7 +43,6 @@ app.get('/', function(req, res) {
                 <input type="hidden" name="reactionTime" id="reactionTime">               
             </form>
             <h2>Records</h2>
-            <h2>${user.reactionTime}</h2>
             <ul>${userList}</ul>   
 
             <script>
