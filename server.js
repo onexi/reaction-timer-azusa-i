@@ -21,7 +21,7 @@ app.get('/', function(req, res) {
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Add a Reaction Time</title>
+            <title>Reaction Timer</title>
             <style>
                 .start-button {
                     background-color: green;
@@ -34,24 +34,38 @@ app.get('/', function(req, res) {
             </style>
         </head>
         <body>
-            <h1>Add a Reaction Time</h1>
+            <h1>Reaction Timer</h1>
             <form action="/input" method="POST">
             <input type="text" id="name" name="name" required>
-                <button type="submit" class="start-button" onclick="startAction()">Start</button>
-                <button type="submit" class="stop-button" onclick="stopAction()">Stop</button>                
+                <button id="startButton" class="start-button">Start</button>
+                <button id="stopButton" disabled class="stop-button">Stop</button>                
             </form>
             <h2>Times</h2>
             <ul>${userList}</ul>   
 
             <script>
-                function startAction() {
-                    startTime = new Date();
-                }
-                function stopAction() {
-                    stopTime = new Date();
-                    let reactionTime = stopTime - startTime;                 
-                    }
-            </script>
+            let startTime;
+            let endTime;
+
+            const startButton = document.getElementById('startButton');
+            const stopButton = document.getElementById('stopButton');
+            const resultDisplay = document.getElementById('result');
+
+            startButton.addEventListener('click', function() {
+                startTime = new Date();
+                startButton.disabled = true;
+                stopButton.disabled = false;
+                resultDisplay.textContent = 'Timer started... Click stop to get the reaction time.';
+            });
+
+            stopButton.addEventListener('click', function() {
+                endTime = new Date();
+                const reactionTime = endTime - startTime; // Calculate the reaction time in milliseconds
+                resultDisplay.textContent = `Reaction time: ${reactionTime} ms`;
+                startButton.disabled = false;
+                stopButton.disabled = true;
+            });
+                </script>
         </body>
         </html>
     `);
