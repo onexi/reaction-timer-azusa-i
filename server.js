@@ -38,7 +38,7 @@ app.get('/', function(req, res) {
             <form action="/input" method="POST">
             <input type="text" id="name" name="name" required>
                 <button id="startButton" class="start-button" onclick="startAction()">Start</button>
-                <button id="startButton" class="stop-button" onclick="stopAction()">Stop</button>                
+                <button id="startButton" disabled class="stop-button" onclick="stopAction()">Stop</button>                
             </form>
             <h2>Times</h2>
             <ul>${userList}</ul>   
@@ -46,10 +46,17 @@ app.get('/', function(req, res) {
             <script>
                 function startAction() {
                     startTime = new Date();
+                    startButton.disabled = true;
+                    stopButton.disabled = false;
+                    resultDisplay.textContent = 'Timer started... Click stop to get the reaction time.';
                 }
                 function stopAction() {
                     stopTime = new Date();
-                    let reactionTime = stopTime - startTime;                 
+                    let reactionTime = stopTime - startTime;  
+                    const reactionTime = endTime - startTime; // Calculate the reaction time in milliseconds
+                    resultDisplay.textContent = `Reaction time: ${reactionTime} ms`;
+                    startButton.disabled = false;
+                    stopButton.disabled = true;               
                     }
             </script>
         </body>
