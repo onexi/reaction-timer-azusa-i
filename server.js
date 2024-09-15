@@ -37,27 +37,35 @@ app.get('/', function(req, res) {
         <body>
             <h1>Reaction Timer</h1>
             <form action="/input" method="POST">
-            <input type="text" id="name" name="name" required>
-                <button id="startButton" class="start-button" onclick="startAction()">Start</button>
-                <button id="stopButton" disabled class="stop-button" onclick="stopAction()">Stop</button> 
+                <input type="text" id="name" name="name" required>
+                <button id="startButton" class="start-button">Start</button>
+                <button id="stopButton" disabled class="stop-button">Stop</button> 
                 <input type="hidden" name="reactionTime" id="reactionTime">               
             </form>
             <h2>Records</h2>
             <ul>${userList}</ul>   
 
             <script>
-                function startAction() {
+                let startTime;
+                const startButton = document.getElementById('startButton');
+                const stopButton = document.getElementById('stopButton');
+                const reactionTimeInput = document.getElementById('reactionTime');
+
+                startButton.addEventListener('click', function() {                
                     let startTime = new Date();
                     startButton.disabled = true;
                     stopButton.disabled = false;
-                    'Timer started... Click stop to get the reaction time.';
-                }
-                function stopAction() {
+                    document.getElementById('messageDisplay').textContent = 'Timer started... Click stop to get the reaction time.';
+                });
+
+                stopButton.addEventListener('click', function() {                
                     let stopTime = new Date();
                     let reactionTime = stopTime - startTime;  
+                    reactionTimeInput.value = reactionTime;                    
                     startButton.disabled = false;
-                    stopButton.disabled = true;               
-                }
+                    stopButton.disabled = true;    
+                    document.getElementById('messageDisplay').textContent = `Reaction time: ${reactionTime} ms`;
+                });                               
             </script>
         </body>
         </html>
