@@ -52,7 +52,7 @@ app.get('/', function(req, res) {
                 const reactionTimeInput = document.getElementById('reactionTime');
 
                 startButton.addEventListener('click', function() {                
-                    let startTime = new Date();
+                    startTime = new Date();
                     startButton.disabled = true;
                     stopButton.disabled = false;
                 });
@@ -62,7 +62,8 @@ app.get('/', function(req, res) {
                     let reactionTime = stopTime - startTime;  
                     reactionTimeInput.value = reactionTime;                    
                     startButton.disabled = false;
-                    stopButton.disabled = true;    
+                    stopButton.disabled = true;  
+                    console.log(`Reaction time: ${reactionTime} ms`);  // Added console.log to print reactionTime
                 });                               
             </script>
         </body>
