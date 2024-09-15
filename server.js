@@ -37,7 +37,7 @@ app.get('/', function(req, res) {
         <body>
             <h1>Reaction Timer</h1>
             <form action="/input" method="POST">
-                <input type="text" id="name" name="name" required>
+            <input type="text" id="name" name="name" required>
                 <button id="startButton" class="start-button" onclick="startAction()">Start</button>
                 <button id="stopButton" disabled class="stop-button" onclick="stopAction()">Stop</button> 
                 <input type="hidden" name="reactionTime" id="reactionTime">               
