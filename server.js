@@ -54,7 +54,7 @@ app.get('/', function(req, res) {
                 function stopAction() {
                     let stopTime = new Date();
                     let reactionTime = stopTime - startTime;  
-                    resultDisplay.textContent = 'Reaction time: ${reactionTime} ms';
+                    'Reaction time: ${reactionTime} ms';
                     startButton.disabled = false;
                     stopButton.disabled = true;               
                 }
