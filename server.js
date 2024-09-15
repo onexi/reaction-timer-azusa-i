@@ -41,7 +41,7 @@ app.get('/', function(req, res) {
                 <button id="startButton" class="start-button" onclick="startAction()">Start</button>
                 <button id="stopButton" disabled class="stop-button" onclick="stopAction()">Stop</button>                
             </form>
-            <h2>Times</h2>
+            <h2>Records</h2>
             <ul>${userList}</ul>   
 
             <script>
@@ -54,7 +54,7 @@ app.get('/', function(req, res) {
                 function stopAction() {
                     let stopTime = new Date();
                     let reactionTime = stopTime - startTime;  
-                    'Reaction time: ${reactionTime} ms';
+                    ${user.reactionTime} = reactionTime;
                     startButton.disabled = false;
                     stopButton.disabled = true;               
                 }
