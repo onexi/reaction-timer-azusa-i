@@ -53,11 +53,10 @@ app.get('/', function(req, res) {
                 function stopAction() {
                     stopTime = new Date();
                     let reactionTime = stopTime - startTime;  
-                    const reactionTime = endTime - startTime; // Calculate the reaction time in milliseconds
                     resultDisplay.textContent = `Reaction time: ${reactionTime} ms`;
                     startButton.disabled = false;
                     stopButton.disabled = true;               
-                    }
+                }
             </script>
         </body>
         </html>
