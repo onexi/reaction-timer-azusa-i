@@ -44,7 +44,7 @@ app.get('/', function(req, res) {
             </form>
             <h2>Records</h2>
             <ul>${userList}</ul> 
-            <p id="result"></p>  
+            <ul id="result"></ul>  
 
             <script>
                 let startTime;
