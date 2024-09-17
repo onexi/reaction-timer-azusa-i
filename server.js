@@ -64,7 +64,7 @@ app.get('/', function(req, res) {
                     reactionTimeInput.value = reactionTime;                    
                     startButton.disabled = false;
                     stopButton.disabled = true;  
-                    console.log(reactionTime);  
+                    console.log("Reaction time:", reactionTime, "ms");  // Debugging log
                 });                               
             </script>
         </body>
@@ -77,8 +77,15 @@ app.post('/input', function(req, res){
     const name = escape(req.body.name);
     const reactionTime = req.body.reactionTime;
 
+    // Debugging log to check the form data received
+    console.log("Form submission received. Name:", name, "Reaction Time:", reactionTime, "ms");
+
     // Add the new user to the array
     users.push({ name: name, reactionTime: reactionTime });
+
+    // Debugging log to check the current users array
+    console.log("Current users array:", users);
+
 
     // If you were to make alphabetical, add here
 
