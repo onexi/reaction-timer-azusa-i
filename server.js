@@ -38,7 +38,7 @@ app.get('/', function(req, res) {
             <form action="/input" method="POST">
                 <input type="text" id="name" name="name" required>
                 <button id="startButton" class="start-button">Start</button>
-                <button id="stopButton" disabled class="stop-button">Stop</button> 
+                <button id="stopButton" disabled class="stop-button" type="submit">Stop</button> 
                 <input type="hidden" name="reactionTime" id="reactionTime">               
             </form>
             <h2>Records</h2>
@@ -73,8 +73,8 @@ app.get('/', function(req, res) {
 
 // Handle the form submission
 app.post('/input', function(req, res){
-    const name = req.body.name;
-    const reactionTime = req.body.reactionTime;
+    const name = escape(req.body.name);
+    const reactionTime = escape(req.body.reactionTime);
 
     // Add the new user to the array
     users.push({ name: name, reactionTime: reactionTime });
