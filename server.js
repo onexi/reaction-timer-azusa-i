@@ -51,13 +51,13 @@ app.get('/', function(req, res) {
                 const reactionTimeInput = document.getElementById('reactionTime');
 
                 startButton.addEventListener('click', function() {                
-                    startTime = new Date();
+                    startTime = new Date().getTime();
                     startButton.disabled = true;
                     stopButton.disabled = false;
                 });
 
                 stopButton.addEventListener('click', function() {                
-                    let stopTime = new Date();
+                    let stopTime = new Date().getTime();
                     let reactionTime = stopTime - startTime;  
                     reactionTimeInput.value = reactionTime;                    
                     startButton.disabled = false;
