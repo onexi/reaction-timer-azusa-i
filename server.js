@@ -39,7 +39,7 @@ app.get('/', function(req, res) {
                 <input type="text" id="name" name="name" placeholder="Enter your name" required>
                 <input type="hidden" name="reactionTime" id="reactionTime">    
                 <button id="startButton" class="start-button" type="button">Start</button>
-                <button id="stopButton" disabled class="stop-button" type="submit">Stop</button> 
+                <button id="stopButton" disabled class="stop-button" type="button">Stop</button> 
             </form>
             <h2>Records</h2>
             <ul id="recordsList">
