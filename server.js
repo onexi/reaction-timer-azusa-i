@@ -63,7 +63,6 @@ app.get('/', function(req, res) {
                     startButton.disabled = false;
                     stopButton.disabled = true;  
                     console.log(reactionTime);  // Added console.log to print reactionTime
-                    // document.getElementById(${user.reactionTime}).textContent = reactionTime;                    
                 });                               
             </script>
         </body>
