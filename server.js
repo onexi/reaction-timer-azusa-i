@@ -65,6 +65,7 @@ app.get('/', function(req, res) {
                     startButton.disabled = false;
                     stopButton.disabled = true;  
                     console.log("Reaction time:", reactionTime, "ms");  // Debugging log
+                    form.submit();
                 });                               
             </script>
         </body>
