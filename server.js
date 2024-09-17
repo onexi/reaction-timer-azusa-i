@@ -51,6 +51,7 @@ app.get('/', function(req, res) {
                 const startButton = document.getElementById('startButton');
                 const stopButton = document.getElementById('stopButton');
                 const reactionTimeInput = document.getElementById('reactionTime');
+                const form = document.getElementById('reactionForm');  // Correctly reference the form                
 
                 startButton.addEventListener('click', function() {                
                     startTime = new Date().getTime();
