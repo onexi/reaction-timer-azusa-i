@@ -76,7 +76,7 @@ app.post('/input', function(req, res){
     const name = escape(req.body.name);
 
     // Add the new user to the array
-    users.push({ name: name });
+    users.push({ name: name, reactionTime: reactionTime });
 
     // If you were to make alphabetical, add here
 
