@@ -42,7 +42,9 @@ app.get('/', function(req, res) {
                 <button id="stopButton" disabled class="stop-button" type="submit">Stop</button> 
             </form>
             <h2>Records</h2>
-            <ul>${userList}</ul> 
+            <ul id="recordsList">
+                ${userList}
+            </ul> 
 
             <script>
                 let startTime;
@@ -72,11 +74,11 @@ app.get('/', function(req, res) {
 
 // Handle the form submission
 app.post('/input', function(req, res){
-    const name = req.body.name;
+    const name = escape(req.body.name);
     const reactionTime = req.body.reactionTime;
 
     // Add the new user to the array
-    users.push({ name:name, reactionTime:reactionTime });
+    users.push({ name: name, reactionTime: reactionTime });
 
     // If you were to make alphabetical, add here
 
