@@ -8,13 +8,12 @@ const path = require('path');
 
 // Array to store names and emails
 let users = [];
-let reactionTime = [];
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Serve the web page with the form
 app.get('/', function(req, res) {
-    let userList = users.map(user => `<li>Name: ${user.name} Time: ${user.reactionTime}</li>`).join('');
+    let userList = users.map(user => `<li>Name: ${user.name} - Time: ${user.reactionTime}</li>`).join('');
     
     res.send(`
         <!DOCTYPE html>
@@ -44,7 +43,6 @@ app.get('/', function(req, res) {
             </form>
             <h2>Records</h2>
             <ul>${userList}</ul> 
-            <ul id="result"></ul>  
 
             <script>
                 let startTime;
@@ -65,7 +63,7 @@ app.get('/', function(req, res) {
                     startButton.disabled = false;
                     stopButton.disabled = true;  
                     console.log(reactionTime);  // Added console.log to print reactionTime
-                    document.getElementById('result').textContent = reactionTime;                    
+                    // document.getElementById('result').textContent = reactionTime;                    
                 });                               
             </script>
         </body>
