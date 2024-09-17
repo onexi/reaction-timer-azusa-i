@@ -74,6 +74,7 @@ app.get('/', function(req, res) {
 // Handle the form submission
 app.post('/input', function(req, res){
     const name = escape(req.body.name);
+    const reactionTime = req.body.reactionTime;
 
     // Add the new user to the array
     users.push({ name: name, reactionTime: reactionTime });
