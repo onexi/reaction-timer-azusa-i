@@ -13,6 +13,15 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // Serve the web page with the form
 app.get('/', function(req, res) {
+
+    // Sort users by reaction time in ascending order and get the top 3
+    let topUsers = users
+        .sort((a, b) => a.reactionTime - b.reactionTime)
+        .slice(0, 3)  // Only get the top 3
+        .map(user => `<li>Name: ${user.name} - Time: ${user.reactionTime} ms</li>`)
+        .join('');
+        
+    // Generate the list of reaction times
     let userList = users.map(user => `<li>Name: ${user.name} - Time: ${user.reactionTime} ms</li>`).join('');
     
     res.send(`
@@ -35,20 +44,22 @@ app.get('/', function(req, res) {
         </head>
         <body>
             <h1>Reaction Timer</h1>
-            <p>1. Enter you name and click "Start Challenge"</p>
-            <p>2. Click "Stop" as soon as it turns red</p>
+            <p> 1. Enter you name and click "Start Challenge"</p>
+            <p> 2. Click "Stop" as soon as it turns red</p>
             <form id="reactionForm" action="/input" method="POST">
                 <input type="text" id="name" name="name" placeholder="Enter your name" required>
                 <input type="hidden" name="reactionTime" id="reactionTime">    
                 <button id="startButton" class="start-button" type="button">Start Challenge</button>
                 <button id="stopButton" disabled class="stop-button" type="button">Stop</button> 
             </form>
-            <h2>Your Reaction Time</h2>
+            <h2>Reaction Times</h2>
             <ul id="recordsList">
                 ${userList}
             </ul> 
-            <h2>Top 5 Reaction Times</h2>
-
+            <h2>Top 3 Reaction Times</h2>
+            <ul id="topUsersList">
+                ${topUsers}
+            </ul>
 
             <script>
                 let startTime;
@@ -101,7 +112,6 @@ app.post('/input', function(req, res){
 
     // Debugging log to check the current users array
     console.log("Current users array:", users);
-
 
     // If you were to make alphabetical, add here
 
