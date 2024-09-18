@@ -40,7 +40,7 @@ app.get('/', function(req, res) {
             <form id="reactionForm" action="/input" method="POST">
                 <input type="text" id="name" name="name" placeholder="Enter your name" required>
                 <input type="hidden" name="reactionTime" id="reactionTime">    
-                <button id="startButton" class="start-button" type="button">Start Challenge</button><br><br>
+                <button id="startButton" class="start-button" type="button">Start Challenge</button>
                 <button id="stopButton" disabled class="stop-button" type="button">Stop</button> 
             </form>
             <h2>Records</h2>
