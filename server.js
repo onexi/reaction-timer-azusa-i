@@ -69,9 +69,12 @@ app.get('/', function(req, res) {
                     // Set a timeout to change the color after a random delay
                     setTimeout(function() {       
                         startButton.style.backgroundColor = 'green';  // Change to green after random delay             
-                        startTime = new Date().getTime();  // Start the timer
-                        stopButton.disabled = false;  // Enable the stop button
                     }, randomDelay);
+                });
+
+                startButton.addEventListener('click', function() {       
+                    let startTime = new Date().getTime();  // Start the timer
+                    stopButton.disabled = false;  // Enable the stop button
                 });
 
                 stopButton.addEventListener('click', function() {                
