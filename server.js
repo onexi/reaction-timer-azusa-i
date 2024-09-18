@@ -43,10 +43,12 @@ app.get('/', function(req, res) {
                 <button id="startButton" class="start-button" type="button">Start Challenge</button>
                 <button id="stopButton" disabled class="stop-button" type="button">Stop</button> 
             </form>
-            <h2>Records</h2>
+            <h2>Your Reaction Time</h2>
             <ul id="recordsList">
                 ${userList}
             </ul> 
+            <h2>Top 5 Reaction Times</h2>
+            
 
             <script>
                 let startTime;
