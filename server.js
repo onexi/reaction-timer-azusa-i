@@ -74,7 +74,7 @@ app.get('/', function(req, res) {
                 });
 
                 startButton.addEventListener('click', function() {       
-                    let startTime = new Date().getTime();  // Start the timer
+                    startTime = new Date().getTime();  // Start the timer
                 });
 
                 stopButton.addEventListener('click', function() {                
