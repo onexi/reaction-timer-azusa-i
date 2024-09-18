@@ -54,19 +54,28 @@ app.get('/', function(req, res) {
                 const form = document.getElementById('reactionForm');  // Correctly reference the form                
 
                 startButton.addEventListener('click', function() {                
-                    startTime = new Date().getTime();
-                    startButton.disabled = true;
-                    stopButton.disabled = false;
+                    // Generate a random delay between 0 and 20 seconds
+                    const randomDelay = Math.floor(Math.random() * 20000);
+
+                    startButton.disabled = true;  // Disable start button until the color change happens
+                    startButton.style.backgroundColor = 'green';  // Set to green initially
+
+                    // Set a timeout to change the color after a random delay
+                    setTimeout(function() {       
+                        startButton.style.backgroundColor = 'red';  // Change to red after random delay             
+                        startTime = new Date().getTime();  // Start the timer
+                        stopButton.disabled = false;  // Enable the stop button
+                    }, randomDelay);
                 });
 
                 stopButton.addEventListener('click', function() {                
                     let stopTime = new Date().getTime();
                     let reactionTime = stopTime - startTime;  
-                    reactionTimeInput.value = reactionTime;                    
-                    startButton.disabled = false;
-                    stopButton.disabled = true;  
+                    reactionTimeInput.value = reactionTime;   // Set the reaction time in hidden field                 
+                    startButton.disabled = false;  // Enable the start button again for the next round
+                    stopButton.disabled = true;   // Disable the stop button after stopping
                     console.log("Reaction time:", reactionTime, "ms");  // Debugging log
-                    form.submit();
+                    form.submit();  // Submit the form
                 });                               
             </script>
         </body>
