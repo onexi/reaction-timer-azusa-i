@@ -48,7 +48,7 @@ app.get('/', function(req, res) {
                 ${userList}
             </ul> 
             <h2>Top 5 Reaction Times</h2>
-            
+
 
             <script>
                 let startTime;
@@ -59,7 +59,7 @@ app.get('/', function(req, res) {
 
                 startButton.addEventListener('click', function() {    
                     // Generate a random delay between 0 and 10 seconds
-                    const randomDelay = Math.floor(Math.random() * 10000);
+                    const randomDelay = Math.floor(Math.random() * (15000 - 5000 + 1)) + 5000;
 
                     stopButton.disabled = true;  // Disable stop button until the color change happens
                     stopButton.style.backgroundColor = 'gray';  // Set to gray initially
