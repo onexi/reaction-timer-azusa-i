@@ -63,16 +63,15 @@ app.get('/', function(req, res) {
                     // Generate a random delay between 0 and 10 seconds
                     const randomDelay = Math.floor(Math.random() * 10000);
 
-                        startButton.disabled = true;  // Disable start button until the color change happens
-                        startButton.style.backgroundColor = 'gray';  // Set to gray initially
+                    startButton.disabled = true;  // Disable start button until the color change happens
+                    startButton.style.backgroundColor = 'gray';  // Set to gray initially
 
-                        // Set a timeout to change the color after a random delay
-                        setTimeout(function() {       
-                            startButton.style.backgroundColor = 'green';  // Change to green after random delay             
-                            startTime = new Date().getTime();  // Start the timer
-                            stopButton.disabled = false;  // Enable the stop button
-                        }, randomDelay);
-                    });
+                    // Set a timeout to change the color after a random delay
+                    setTimeout(function() {       
+                        startButton.style.backgroundColor = 'green';  // Change to green after random delay             
+                        startTime = new Date().getTime();  // Start the timer
+                        stopButton.disabled = false;  // Enable the stop button
+                    }, randomDelay);
                 });
 
                 stopButton.addEventListener('click', function() {                
