@@ -23,6 +23,10 @@ app.get('/', function(req, res) {
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>Reaction Timer</title>
             <style>
+                .challenge-button {
+                    background-color: green;
+                    color: white;
+                }
                 .start-button {
                     background-color: gray;
                     color: white;
@@ -38,6 +42,7 @@ app.get('/', function(req, res) {
             <form id="reactionForm" action="/input" method="POST">
                 <input type="text" id="name" name="name" placeholder="Enter your name" required>
                 <input type="hidden" name="reactionTime" id="reactionTime">    
+                <button id="challengeButton" class="challenge-button" type="button">Start Challenge</button><br>
                 <button id="startButton" class="start-button" type="button">Start</button>
                 <button id="stopButton" disabled class="stop-button" type="button">Stop</button> 
             </form>
@@ -48,24 +53,27 @@ app.get('/', function(req, res) {
 
             <script>
                 let startTime;
+                const challengeButton = document.getElementById('challengeButton');
                 const startButton = document.getElementById('startButton');
                 const stopButton = document.getElementById('stopButton');
                 const reactionTimeInput = document.getElementById('reactionTime');
                 const form = document.getElementById('reactionForm');  // Correctly reference the form                
 
-                startButton.addEventListener('click', function() {                
-                    // Generate a random delay between 0 and 10 seconds
-                    const randomDelay = Math.floor(Math.random() * 10000);
+                challengeButton.addEventListener('click', function() {    
+                    startButton.addEventListener('click', function() {                
+                        // Generate a random delay between 0 and 10 seconds
+                        const randomDelay = Math.floor(Math.random() * 10000);
 
-                    startButton.disabled = true;  // Disable start button until the color change happens
-                    startButton.style.backgroundColor = 'gray';  // Set to gray initially
+                        startButton.disabled = true;  // Disable start button until the color change happens
+                       startButton.style.backgroundColor = 'gray';  // Set to gray initially
 
-                    // Set a timeout to change the color after a random delay
-                    setTimeout(function() {       
-                        startButton.style.backgroundColor = 'green';  // Change to green after random delay             
-                        startTime = new Date().getTime();  // Start the timer
-                        stopButton.disabled = false;  // Enable the stop button
-                    }, randomDelay);
+                        // Set a timeout to change the color after a random delay
+                        setTimeout(function() {       
+                            startButton.style.backgroundColor = 'green';  // Change to green after random delay             
+                            startTime = new Date().getTime();  // Start the timer
+                            stopButton.disabled = false;  // Enable the stop button
+                        }, randomDelay);
+                    });
                 });
 
                 stopButton.addEventListener('click', function() {                
