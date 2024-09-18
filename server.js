@@ -42,7 +42,7 @@ app.get('/', function(req, res) {
             <form id="reactionForm" action="/input" method="POST">
                 <input type="text" id="name" name="name" placeholder="Enter your name" required>
                 <input type="hidden" name="reactionTime" id="reactionTime">    
-                <button id="challengeButton" class="challenge-button" type="button">Start Challenge</button><br>
+                <button id="challengeButton" class="challenge-button" type="button">Start Challenge</button><br><br>
                 <button id="startButton" class="start-button" type="button">Start</button>
                 <button id="stopButton" disabled class="stop-button" type="button">Stop</button> 
             </form>
@@ -60,12 +60,11 @@ app.get('/', function(req, res) {
                 const form = document.getElementById('reactionForm');  // Correctly reference the form                
 
                 challengeButton.addEventListener('click', function() {    
-                    startButton.addEventListener('click', function() {                
-                        // Generate a random delay between 0 and 10 seconds
-                        const randomDelay = Math.floor(Math.random() * 10000);
+                    // Generate a random delay between 0 and 10 seconds
+                    const randomDelay = Math.floor(Math.random() * 10000);
 
                         startButton.disabled = true;  // Disable start button until the color change happens
-                       startButton.style.backgroundColor = 'gray';  // Set to gray initially
+                        startButton.style.backgroundColor = 'gray';  // Set to gray initially
 
                         // Set a timeout to change the color after a random delay
                         setTimeout(function() {       
