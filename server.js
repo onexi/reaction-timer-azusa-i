@@ -35,10 +35,11 @@ app.get('/', function(req, res) {
         </head>
         <body>
             <h1>Reaction Timer</h1>
+            <h2>Enter you name and click "Start Challenge". Click "Stop" as fast as you can after it changes red.</h2>
             <form id="reactionForm" action="/input" method="POST">
                 <input type="text" id="name" name="name" placeholder="Enter your name" required>
                 <input type="hidden" name="reactionTime" id="reactionTime">    
-                <button id="startButton" class="start-button" type="button">Start Challenge</button>
+                <button id="startButton" class="start-button" type="button">Start Challenge</button><br><br>
                 <button id="stopButton" disabled class="stop-button" type="button">Stop</button> 
             </form>
             <h2>Records</h2>
