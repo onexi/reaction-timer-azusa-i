@@ -24,7 +24,7 @@ app.get('/', function(req, res) {
             <title>Reaction Timer</title>
             <style>
                 .start-button {
-                    background-color: green;
+                    background-color: gray;
                     color: white;
                 }
                 .stop-button {
@@ -54,15 +54,15 @@ app.get('/', function(req, res) {
                 const form = document.getElementById('reactionForm');  // Correctly reference the form                
 
                 startButton.addEventListener('click', function() {                
-                    // Generate a random delay between 0 and 20 seconds
-                    const randomDelay = Math.floor(Math.random() * 20000);
+                    // Generate a random delay between 0 and 10 seconds
+                    const randomDelay = Math.floor(Math.random() * 10000);
 
                     startButton.disabled = true;  // Disable start button until the color change happens
-                    startButton.style.backgroundColor = 'green';  // Set to green initially
+                    startButton.style.backgroundColor = 'gray';  // Set to gray initially
 
                     // Set a timeout to change the color after a random delay
                     setTimeout(function() {       
-                        startButton.style.backgroundColor = 'red';  // Change to red after random delay             
+                        startButton.style.backgroundColor = 'green';  // Change to green after random delay             
                         startTime = new Date().getTime();  // Start the timer
                         stopButton.disabled = false;  // Enable the stop button
                     }, randomDelay);
