@@ -23,16 +23,12 @@ app.get('/', function(req, res) {
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>Reaction Timer</title>
             <style>
-                .challenge-button {
+                .start-button {
                     background-color: green;
                     color: white;
                 }
-                .start-button {
-                    background-color: gray;
-                    color: white;
-                }
                 .stop-button {
-                    background-color: darkred;
+                    background-color: gray;
                     color: white;
                 }
             </style>
@@ -42,8 +38,7 @@ app.get('/', function(req, res) {
             <form id="reactionForm" action="/input" method="POST">
                 <input type="text" id="name" name="name" placeholder="Enter your name" required>
                 <input type="hidden" name="reactionTime" id="reactionTime">    
-                <button id="challengeButton" class="challenge-button" type="button">Start Challenge</button><br><br>
-                <button id="startButton" class="start-button" type="button">Start</button>
+                <button id="startButton" class="start-button" type="button">Start Challenge</button>
                 <button id="stopButton" disabled class="stop-button" type="button">Stop</button> 
             </form>
             <h2>Records</h2>
@@ -53,30 +48,25 @@ app.get('/', function(req, res) {
 
             <script>
                 let startTime;
-                const challengeButton = document.getElementById('challengeButton');
                 const startButton = document.getElementById('startButton');
                 const stopButton = document.getElementById('stopButton');
                 const reactionTimeInput = document.getElementById('reactionTime');
                 const form = document.getElementById('reactionForm');  // Correctly reference the form                
 
-                challengeButton.addEventListener('click', function() {    
+                startButton.addEventListener('click', function() {    
                     // Generate a random delay between 0 and 10 seconds
                     const randomDelay = Math.floor(Math.random() * 10000);
 
-                    startButton.disabled = true;  // Disable start button until the color change happens
-                    startButton.style.backgroundColor = 'gray';  // Set to gray initially
+                    stopButton.disabled = true;  // Disable stop button until the color change happens
+                    stopButton.style.backgroundColor = 'gray';  // Set to gray initially
 
                     // Set a timeout to change the color after a random delay
                     setTimeout(function() {       
-                        startButton.style.backgroundColor = 'green';  // Change to green after random delay  
-                        startButton.disabled = false;  // Enable the start button after color change
+                        stopButton.style.backgroundColor = 'darkred';  // Change to darkred after random delay  
+                        startButton.disabled = true;  // Disable the start button
+                        stopButton.disabled = false;  // Enable the stop button 
+                        startTime = new Date().getTime();  // Start the timer
                     }, randomDelay);
-                });
-
-                startButton.addEventListener('click', function() {       
-                    startTime = new Date().getTime();  // Start the timer
-                    startButton.disabled = true;  // Disable the start button
-                    stopButton.disabled = false;  // Enable the stop button     
                 });
 
                 stopButton.addEventListener('click', function() {                
