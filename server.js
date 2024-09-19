@@ -101,9 +101,7 @@ app.get('/', function(req, res) {
                             startTime = new Date().getTime();  // Start the timer
                             buttonTurnedRed = true;  // Set the flag to indicate that the button has turned red   
                             console.log("Button turned red! Timer started.");  
-                        } else {
-                            return;  // Prevent form submission if disqualified
-                  }                                               
+                        }
                     }, randomDelay);
                 });
 
