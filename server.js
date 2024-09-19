@@ -55,12 +55,12 @@ app.get('/', function(req, res) {
                 <button id="stopButton" disabled class="stop-button" type="button">Stop</button> 
             </form>
             <h2>Fastest Reaction Time</h2>
-            <ul id="topUsersList">
+                ${topUsers || "<li>No reactions recorded yet</li>"}
                 ${topUsers}
             </ul>
             <h2>Reaction Time History</h2>
             <ul id="recordsList">
-                ${userList}
+                ${userList || "<li>No reactions recorded yet</li>"}
             </ul> 
 
 
@@ -80,6 +80,7 @@ app.get('/', function(req, res) {
                     stopButton.disabled = true;  // Disable stop button until the color change happens
                     stopButton.style.backgroundColor = 'gray';  // Set to gray initially
                     buttonTurnedRed = false;  // Reset the flag for each new attempt                    
+                    startTime = null;  // Clear start time
 
                     // Set a timeout to change the color after a random delay
                     setTimeout(function() {       
@@ -87,7 +88,8 @@ app.get('/', function(req, res) {
                         startButton.disabled = true;  // Disable the start button
                         stopButton.disabled = false;  // Enable the stop button 
                         startTime = new Date().getTime();  // Start the timer
-                        buttonTurnedRed = true;  // Set the flag to indicate that the button has turned red                        
+                        buttonTurnedRed = true;  // Set the flag to indicate that the button has turned red   
+                        console.log("Button turned red! Timer started.");                                             
                     }, randomDelay);
                 });
 
@@ -106,6 +108,8 @@ app.get('/', function(req, res) {
                     if (!buttonTurnedRed) {
                         console.log("Premature click! Adding a 3-second penalty.");
                         reactionTime += 3000;  // Add a 3-second (3000 ms) penalty
+                    } else {
+                        console.log("Button was red. No penalty.");
                     }
 
                     reactionTimeInput.value = reactionTime;   // Set the reaction time in hidden field                 
