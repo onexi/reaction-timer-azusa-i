@@ -70,11 +70,11 @@ app.get('/', function(req, res) {
             <script>
                 let startTime;
                 let buttonTurnedRed = false; // Flag to track if the button has turned red
+                let prematureClick = false;  // Flag to track if the user clicked prematurely
                 const startButton = document.getElementById('startButton');
                 const stopButton = document.getElementById('stopButton');
                 const reactionTimeInput = document.getElementById('reactionTime');
                 const form = document.getElementById('reactionForm');  // Correctly reference the form  
-                const disqualifiedMessage = document.createElement('p'); // Create a disqualification message element                              
 
                 startButton.addEventListener('click', function() {    
                     // Generate a random delay 
@@ -85,22 +85,26 @@ app.get('/', function(req, res) {
                     // stopButton.disabled = true;  // Disable stop button until the color change happens  // Stop button will always be enabled
                     stopButton.disabled = false;  // Enable the stop button
                     stopButton.style.backgroundColor = 'gray';  // Set to gray initially
-                    buttonTurnedRed = false;  // Reset the flag for each new attempt                    
+                    buttonTurnedRed = false;  // Reset the flag for each new attempt       
+                    prematureClick = false;  // Reset premature click flag              
 
                     // Remove previous disqualification message, if any
-                    if (disqualifiedMessage) {
-                        disqualifiedMessage.remove();
-                    }     
+                    const existingMessage = document.querySelector('#disqualifiedMessage');
+                    if (existingMessage) {
+                        existingMessage.remove();
+                    }
 
                     // Set a timeout to change the color after a random delay
-                    setTimeout(function() {       
-                        if (!disqualifiedMessage) { 
+                    setTimeout(function() {     
+                        if (!prematureClick) {  // Only change color if no premature click occurred  
                             stopButton.style.backgroundColor = 'darkred';  // Change to darkred after random delay  
                             startButton.disabled = true;  // Disable the start button
                             // stopButton.disabled = false;  // Enable the stop button  // Stop button will always be enabled
                             startTime = new Date().getTime();  // Start the timer
                             buttonTurnedRed = true;  // Set the flag to indicate that the button has turned red   
                             console.log("Button turned red! Timer started.");  
+                        } else {
+                            console.log("Premature click occurred, not turning the button red.");
                         }
                     }, randomDelay);
                 });
@@ -112,10 +116,16 @@ app.get('/', function(req, res) {
                     // Check if the button was clicked prematurely (before it turned red)
                     if (!buttonTurnedRed) {
                         console.log("Premature click! You have been disqualified.");
+                        prematureClick = true;  // Set the premature click flag
+
+                        // Create a disqualification message element and add it to the DOM
+                        const disqualifiedMessage = document.createElement('p');
+                        disqualifiedMessage.id = 'disqualifiedMessage';  // Assign an ID to easily find it later
                         disqualifiedMessage.textContent = "You have been disqualified!";
                         disqualifiedMessage.style.color = 'red';  // Add some styling for emphasis
                         disqualifiedMessage.style.fontWeight = 'bold';  // Make the message bold                        
                         document.body.appendChild(disqualifiedMessage);  // Display the message in the browser
+                        
                         return;  // Prevent form submission if disqualified
                     } else {
                         reactionTime = stopTime - startTime;  // Calculate the reaction time
