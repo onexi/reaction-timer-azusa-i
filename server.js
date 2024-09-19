@@ -55,11 +55,11 @@ app.get('/', function(req, res) {
                 <button id="stopButton" disabled class="stop-button" type="button">Stop</button> 
             </form>
             <h2>Fastest Reaction Time</h2>
-                ${topUsers}
+                ${topUsers || "<li>No reactions recorded yet</li>"}
             </ul>
             <h2>Reaction Time History</h2>
             <ul id="recordsList">
-                ${userList}
+                ${userList || "<li>No reactions recorded yet</li>"}
             </ul> 
 
 
