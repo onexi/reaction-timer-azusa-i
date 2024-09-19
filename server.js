@@ -94,16 +94,16 @@ app.get('/', function(req, res) {
 
                     // Set a timeout to change the color after a random delay
                     setTimeout(function() {       
-                        stopButton.style.backgroundColor = 'darkred';  // Change to darkred after random delay  
-                        startButton.disabled = true;  // Disable the start button
-                        // stopButton.disabled = false;  // Enable the stop button  // Stop button will always be enabled
-                        startTime = new Date().getTime();  // Start the timer
-                        if (!disqualifiedMessage) {
+                        if (!disqualifiedMessage) { 
+                            stopButton.style.backgroundColor = 'darkred';  // Change to darkred after random delay  
+                            startButton.disabled = true;  // Disable the start button
+                            // stopButton.disabled = false;  // Enable the stop button  // Stop button will always be enabled
+                            startTime = new Date().getTime();  // Start the timer
                             buttonTurnedRed = true;  // Set the flag to indicate that the button has turned red   
                             console.log("Button turned red! Timer started.");  
                         } else {
                             return;  // Prevent form submission if disqualified
-                }                                               
+                  }                                               
                     }, randomDelay);
                 });
 
