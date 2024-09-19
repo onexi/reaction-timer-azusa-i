@@ -100,7 +100,7 @@ app.get('/', function(req, res) {
                     // Check if the button was clicked prematurely (before it turned red)
                     if (!buttonTurnedRed) {
                         console.log("Premature click! Adding a 3-second penalty.");
-                        reactionTime += 3000;  // Add a 3-second (3000 ms) penalty
+                        reactionTime = 9999;  // Add a 3-second (3000 ms) penalty
                     } else {
                         console.log("Button was red. No penalty.");
                     }
