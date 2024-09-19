@@ -62,10 +62,9 @@ app.get('/', function(req, res) {
                 ${userList || "<li>No reactions recorded yet</li>"}
             </ul> 
 
-
             <script>
                 let startTime;
-                let buttonTurnedRed = false; // Flag to track if the button has turned red
+                let buttonTurnedRed; // = false; // Flag to track if the button has turned red
                 const startButton = document.getElementById('startButton');
                 const stopButton = document.getElementById('stopButton');
                 const reactionTimeInput = document.getElementById('reactionTime');
