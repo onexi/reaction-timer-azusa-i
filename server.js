@@ -93,7 +93,14 @@ app.get('/', function(req, res) {
 
                 stopButton.addEventListener('click', function() {                
                     let stopTime = new Date().getTime();
-                    let reactionTime = stopTime - startTime;  
+                    let reactionTime;
+
+                    // Check if startTime was set (button turned red)
+                    if (startTime) {
+                        reactionTime = stopTime - startTime;  
+                    } else {
+                        reactionTime = 0; // If clicked too early, we set it to 0 initially
+                    }
 
                     // Check if the button was clicked prematurely (before it turned red)
                     if (!buttonTurnedRed) {
