@@ -17,7 +17,7 @@ app.get('/', function(req, res) {
     // Sort users by reaction time in ascending order and get the top 3
     let topUsers = [...users]
         .sort((a, b) => a.reactionTime - b.reactionTime)
-        .slice(0, 3)  // Only get the top 3
+        .slice(0, 1)  // Only get the fastest
         .map(user => `<li>Name: ${user.name} - Time: ${user.reactionTime} ms</li>`)
         .join('');
         
@@ -54,14 +54,15 @@ app.get('/', function(req, res) {
                 <button id="startButton" class="start-button" type="button">Start Challenge</button>
                 <button id="stopButton" disabled class="stop-button" type="button">Stop</button> 
             </form>
+            <h2>Fastest Reaction Time</h2>
+            <ul id="topUsersList">
+                ${topUsers}
+            </ul>
             <h2>Reaction Time History</h2>
             <ul id="recordsList">
                 ${userList}
             </ul> 
-            <h2>Top 3 Reaction Times</h2>
-            <ul id="topUsersList">
-                ${topUsers}
-            </ul>
+
 
             <script>
                 let startTime;
@@ -72,7 +73,8 @@ app.get('/', function(req, res) {
 
                 startButton.addEventListener('click', function() {    
                     // Generate a random delay between 0 and 10 seconds
-                    const randomDelay = Math.floor(Math.random() * (15000 - 5000 + 1)) + 5000;
+                    // const randomDelay = Math.floor(Math.random() * (15000 - 5000 + 1)) + 5000;
+                    const randomDelay = Math.floor(Math.random() * (10000 - 5000 + 1)) + 5000;
 
                     stopButton.disabled = true;  // Disable stop button until the color change happens
                     stopButton.style.backgroundColor = 'gray';  // Set to gray initially
