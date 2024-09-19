@@ -112,6 +112,7 @@ app.get('/', function(req, res) {
                         console.log("Premature click! You have been disqualified.");
                         disqualifiedMessage.textContent = "You have been disqualified!";
                         disqualifiedMessage.style.color = 'red';  // Add some styling for emphasis
+                        disqualifiedMessage.style.fontWeight = 'bold';  // Make the message bold                        
                         document.body.appendChild(disqualifiedMessage);  // Display the message in the browser
                         return;  // Prevent form submission if disqualified
                     } else {
