@@ -84,7 +84,7 @@ app.get('/', function(req, res) {
                     setTimeout(function() {       
                         stopButton.style.backgroundColor = 'darkred';  // Change to darkred after random delay  
                         startButton.disabled = true;  // Disable the start button
-                        // stopButton.disabled = false;  // Enable the stop button 
+                        // stopButton.disabled = false;  // Enable the stop button  // Stop button will always be enabled
                         startTime = new Date().getTime();  // Start the timer
                         buttonTurnedRed = true;  // Set the flag to indicate that the button has turned red   
                         console.log("Button turned red! Timer started.");                                             
@@ -99,7 +99,7 @@ app.get('/', function(req, res) {
 
                     // Check if the button was clicked prematurely (before it turned red)
                     if (!buttonTurnedRed) {
-                        console.log("Premature click! Adding a 3-second penalty.");
+                        console.log("Premature click! Adding penalty.");
                         reactionTime = 9999;  // Add a 3-second (3000 ms) penalty
                     } else {
                         console.log("Button was red. No penalty.");
@@ -107,7 +107,7 @@ app.get('/', function(req, res) {
 
                     reactionTimeInput.value = reactionTime;   // Set the reaction time in hidden field                 
                     startButton.disabled = false;  // Enable the start button again for the next round
-                    // stopButton.disabled = true;   // Disable the stop button after stopping
+                    // stopButton.disabled = true;   // Disable the stop button after stopping  // Stop button will always be enabled
                     console.log("Reaction time:", reactionTime, "ms");  // Debugging log
                     form.submit();  // Submit the form
                 });                               
