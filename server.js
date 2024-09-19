@@ -64,7 +64,7 @@ app.get('/', function(req, res) {
 
             <script>
                 let startTime;
-                let buttonTurnedRed; // = false; // Flag to track if the button has turned red
+                let buttonTurnedRed; // Flag to track if the button has turned red
                 const startButton = document.getElementById('startButton');
                 const stopButton = document.getElementById('stopButton');
                 const reactionTimeInput = document.getElementById('reactionTime');
@@ -75,7 +75,7 @@ app.get('/', function(req, res) {
                     // const randomDelay = Math.floor(Math.random() * (15000 - 5000 + 1)) + 5000;  // 5 to 15 seconds
                     const randomDelay = Math.floor(Math.random() * (10000 - 5000 + 1)) + 5000;  // 5 to 10 seconds
 
-                    stopButton.disabled = true;  // Disable stop button until the color change happens
+                    // stopButton.disabled = true;  // Disable stop button until the color change happens
                     stopButton.style.backgroundColor = 'gray';  // Set to gray initially
                     buttonTurnedRed = false;  // Reset the flag for each new attempt                    
 
@@ -83,7 +83,7 @@ app.get('/', function(req, res) {
                     setTimeout(function() {       
                         stopButton.style.backgroundColor = 'darkred';  // Change to darkred after random delay  
                         startButton.disabled = true;  // Disable the start button
-                        stopButton.disabled = false;  // Enable the stop button 
+                        // stopButton.disabled = false;  // Enable the stop button 
                         startTime = new Date().getTime();  // Start the timer
                         buttonTurnedRed = true;  // Set the flag to indicate that the button has turned red   
                         console.log("Button turned red! Timer started.");                                             
@@ -106,7 +106,7 @@ app.get('/', function(req, res) {
 
                     reactionTimeInput.value = reactionTime;   // Set the reaction time in hidden field                 
                     startButton.disabled = false;  // Enable the start button again for the next round
-                    stopButton.disabled = true;   // Disable the stop button after stopping
+                    // stopButton.disabled = true;   // Disable the stop button after stopping
                     console.log("Reaction time:", reactionTime, "ms");  // Debugging log
                     form.submit();  // Submit the form
                 });                               
