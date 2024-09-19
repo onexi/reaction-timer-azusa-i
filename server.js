@@ -61,7 +61,7 @@ app.get('/', function(req, res) {
                 ${topUsers || "<li>No reactions recorded yet</li>"}
             </ul>
             <h2>Reaction Time History</h2>
-            <ul id="recordsList">
+            <ul id="recordsList" style="padding-left: 20px;">
                 ${userList || "<li>No reactions recorded yet</li>"}
             </ul> 
 
