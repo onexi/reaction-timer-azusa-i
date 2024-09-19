@@ -94,6 +94,7 @@ app.get('/', function(req, res) {
                     let stopTime = new Date().getTime();
                     let reactionTime;
                     reactionTime = stopTime - startTime;  // Calculate the reaction time
+                    console.log(buttonTurnedRed);
 
                     // Check if the button was clicked prematurely (before it turned red)
                     if (!buttonTurnedRed) {
