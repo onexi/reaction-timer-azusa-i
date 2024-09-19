@@ -49,7 +49,7 @@ app.get('/', function(req, res) {
             <p>
                 1. Enter you name and click "Start Challenge" <br>
                 2. Click "Stop" as soon as it turns red <br><br>
-                <i>Note: You will be penalized if you click "Stop" before it turns red</i>
+                <i>Note: You will be disqualified if you click "Stop" before it turns red</i>
             </p>
             <form id="reactionForm" action="/input" method="POST">
                 <input type="text" id="name" name="name" placeholder="Enter your name" required>
@@ -57,6 +57,7 @@ app.get('/', function(req, res) {
                 <button id="startButton" class="start-button" type="button">Start Challenge</button>
                 <button id="stopButton" disabled class="stop-button" type="button">Stop</button> 
             </form>
+            <br>
             <h2>Fastest Reaction Time</h2>
             <ul id="topUsersList">
                 ${topUsers || "<li>No reactions recorded yet</li>"}
