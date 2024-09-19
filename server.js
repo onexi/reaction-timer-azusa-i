@@ -98,8 +98,12 @@ app.get('/', function(req, res) {
                         startButton.disabled = true;  // Disable the start button
                         // stopButton.disabled = false;  // Enable the stop button  // Stop button will always be enabled
                         startTime = new Date().getTime();  // Start the timer
-                        buttonTurnedRed = true;  // Set the flag to indicate that the button has turned red   
-                        console.log("Button turned red! Timer started.");                                             
+                        if (!disqualifiedMessage) {
+                            buttonTurnedRed = true;  // Set the flag to indicate that the button has turned red   
+                            console.log("Button turned red! Timer started.");  
+                        } else {
+                            return;  // Prevent form submission if disqualified
+                }                                               
                     }, randomDelay);
                 });
 
