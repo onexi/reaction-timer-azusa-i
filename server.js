@@ -55,11 +55,11 @@ app.get('/', function(req, res) {
                 <button id="stopButton" disabled class="stop-button" type="button">Stop</button> 
             </form>
             <h2>Fastest Reaction Time</h2>
-                ${topUsers || "<li>No reactions recorded yet</li>"}
+                ${topUsers}
             </ul>
             <h2>Reaction Time History</h2>
             <ul id="recordsList">
-                ${userList || "<li>No reactions recorded yet</li>"}
+                ${userList}
             </ul> 
 
 
@@ -95,7 +95,7 @@ app.get('/', function(req, res) {
                     let stopTime = new Date().getTime();
                     let reactionTime;
                     reactionTime = stopTime - startTime;  // Calculate the reaction time
-                    
+
                     // Check if the button was clicked prematurely (before it turned red)
                     if (!buttonTurnedRed) {
                         console.log("Premature click! Adding a 3-second penalty.");
