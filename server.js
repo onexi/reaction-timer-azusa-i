@@ -56,7 +56,6 @@ app.get('/', function(req, res) {
             </form>
             <h2>Fastest Reaction Time</h2>
                 ${topUsers || "<li>No reactions recorded yet</li>"}
-                ${topUsers}
             </ul>
             <h2>Reaction Time History</h2>
             <ul id="recordsList">
@@ -80,7 +79,6 @@ app.get('/', function(req, res) {
                     stopButton.disabled = true;  // Disable stop button until the color change happens
                     stopButton.style.backgroundColor = 'gray';  // Set to gray initially
                     buttonTurnedRed = false;  // Reset the flag for each new attempt                    
-                    startTime = null;  // Clear start time
 
                     // Set a timeout to change the color after a random delay
                     setTimeout(function() {       
@@ -96,14 +94,8 @@ app.get('/', function(req, res) {
                 stopButton.addEventListener('click', function() {                
                     let stopTime = new Date().getTime();
                     let reactionTime;
-
-                    // Check if startTime was set (button turned red)
-                    if (startTime) {
-                        reactionTime = stopTime - startTime;  
-                    } else {
-                        reactionTime = 0; // If clicked too early, we set it to 0 initially
-                    }
-
+                    reactionTime = stopTime - startTime;  // Calculate the reaction time
+                    
                     // Check if the button was clicked prematurely (before it turned red)
                     if (!buttonTurnedRed) {
                         console.log("Premature click! Adding a 3-second penalty.");
