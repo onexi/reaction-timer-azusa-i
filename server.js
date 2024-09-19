@@ -46,8 +46,10 @@ app.get('/', function(req, res) {
         </head>
         <body>
             <h1>Reaction Timer</h1>
-            <p>1. Enter you name and click "Start Challenge"</p>
-            <p>2. Click "Stop" as soon as it turns red</p>
+            <p>
+                1. Enter you name and click "Start Challenge" <br>
+                2. Click "Stop" as soon as it turns red
+            </p>
             <form id="reactionForm" action="/input" method="POST">
                 <input type="text" id="name" name="name" placeholder="Enter your name" required>
                 <input type="hidden" name="reactionTime" id="reactionTime">    
