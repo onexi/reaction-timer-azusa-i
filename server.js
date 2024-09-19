@@ -77,6 +77,7 @@ app.get('/', function(req, res) {
 
                     // stopButton.disabled = true;  // Disable stop button until the color change happens
                     stopButton.style.backgroundColor = 'gray';  // Set to gray initially
+                    stopButton.disabled = false;  // Enable the stop button
                     buttonTurnedRed = false;  // Reset the flag for each new attempt                    
 
                     // Set a timeout to change the color after a random delay
