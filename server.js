@@ -56,6 +56,8 @@ app.get('/', function(req, res) {
                 <input type="hidden" name="reactionTime" id="reactionTime">    
                 <button id="startButton" class="start-button" type="button">Start Challenge</button>
                 <button id="stopButton" disabled class="stop-button" type="button">Stop</button> 
+                <!-- Placeholder for the disqualification message -->
+                <div id="messageContainer"></div>
             </form>
             <br>
             <h2>Fastest Reaction Time</h2>
@@ -75,6 +77,7 @@ app.get('/', function(req, res) {
                 const stopButton = document.getElementById('stopButton');
                 const reactionTimeInput = document.getElementById('reactionTime');
                 const form = document.getElementById('reactionForm');  // Correctly reference the form  
+                const messageContainer = document.getElementById('messageContainer');  // Reference the message container
 
                 startButton.addEventListener('click', function() {    
                     // Generate a random delay 
@@ -88,11 +91,8 @@ app.get('/', function(req, res) {
                     buttonTurnedRed = false;  // Reset the flag for each new attempt       
                     prematureClick = false;  // Reset premature click flag              
 
-                    // Remove previous disqualification message, if any
-                    const existingMessage = document.querySelector('#disqualifiedMessage');
-                    if (existingMessage) {
-                        existingMessage.remove();
-                    }
+                    // Clear previous disqualification message, if any
+                    messageContainer.innerHTML = '';  // Clear the message container
 
                     // Set a timeout to change the color after a random delay
                     setTimeout(function() {     
@@ -125,7 +125,7 @@ app.get('/', function(req, res) {
                         disqualifiedMessage.style.color = 'red';  // Add some styling for emphasis
                         disqualifiedMessage.style.fontWeight = 'bold';  // Make the message bold                        
                         document.body.appendChild(disqualifiedMessage);  // Display the message in the browser
-                        
+
                         return;  // Prevent form submission if disqualified
                     } else {
                         reactionTime = stopTime - startTime;  // Calculate the reaction time
