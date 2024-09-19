@@ -79,7 +79,26 @@ app.get('/', function(req, res) {
                 const form = document.getElementById('reactionForm');  // Correctly reference the form  
                 const messageContainer = document.getElementById('messageContainer');  // Reference the message container
 
-                startButton.addEventListener('click', function() {    
+                startButton.addEventListener('click', function() {  
+                    // Check if the name input is empty
+                    if (nameInput.value.trim() === '') {
+                        // Display error message if the name is not provided
+                        const errorMessage = document.createElement('p');
+                        errorMessage.id = 'errorMessage';
+                        errorMessage.textContent = "You need to fill in your name to begin.";
+                        errorMessage.style.color = 'red';
+                        errorMessage.style.fontWeight = 'bold';
+            
+                        // Clear any existing error message
+                        messageContainer.innerHTML = '';
+                        messageContainer.appendChild(errorMessage);  // Add the error message to the DOM
+
+                        return;  // Prevent starting the challenge if no name is provided
+                    }    
+
+                    // Clear previous disqualification message, if any
+                    messageContainer.innerHTML = '';  // Clear the message container
+
                     // Generate a random delay 
                     // const randomDelay = Math.floor(Math.random() * (15000 - 5000 + 1)) + 5000;  // 5 to 15 seconds
                     const randomDelay = Math.floor(Math.random() * (10000 - 5000 + 1)) + 5000;  // 5 to 10 seconds
@@ -90,9 +109,6 @@ app.get('/', function(req, res) {
                     stopButton.style.backgroundColor = 'gray';  // Set to gray initially
                     buttonTurnedRed = false;  // Reset the flag for each new attempt       
                     prematureClick = false;  // Reset premature click flag              
-
-                    // Clear previous disqualification message, if any
-                    messageContainer.innerHTML = '';  // Clear the message container
 
                     // Set a timeout to change the color after a random delay
                     setTimeout(function() {     
