@@ -14,8 +14,8 @@ Note .gitignore is set to ignore node_modules
   - After user inputs name and clicks "Start Challenge", "Stop" button will turn red
     after a random number of seconds (between 5 and 10 sec)
   - When the user clicks the "Stop" button after it turns red, a reaction time 
-    will be measured and printed on the browser. Fastest reaction time and a history 
-    of previous trials will be shown
+    will be measured and printed on the browser. Fastest reaction time and history 
+    of all reaction times will be shown
   - User cannot start this challenge unless user enters their name.
     If the user clicks "Start Challenge" button without entering their name,
     user will be notified by an error message 
@@ -37,11 +37,13 @@ Note .gitignore is set to ignore node_modules
       if "Stop" button is clicked when it is still gray
    e. Finally, after the reaction time has been calculated, the form is submitted to 
       the server using form.submit() 
+
 2. Server handles form submission using app.post('/input', function(req, res){
    a. Name and reaction time are added to array "users" stored on server
    b. Once appending is done, it redirects back to the root URL
+
 3. Root URL reloads with appended name and reaction time
-   a. Using array "users", the fastest reaction time is stored in another array "topUsers"
-      which is also on the server
+   a. Using array "users", the fastest reaction time is calculated and stored in 
+      another array "topUsers", which will also be on the server
    b. The web page is again served with the form, but this time displaying the fastest 
       reaction time and the history of reaction times
