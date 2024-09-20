@@ -76,6 +76,7 @@ app.get('/', function(req, res) {
                 const startButton = document.getElementById('startButton');
                 const stopButton = document.getElementById('stopButton');
                 const reactionTimeInput = document.getElementById('reactionTime');
+                const nameInput = document.getElementById('name');  // Get the name input field
                 const form = document.getElementById('reactionForm');  // Correctly reference the form  
                 const messageContainer = document.getElementById('messageContainer');  // Reference the message container
 
