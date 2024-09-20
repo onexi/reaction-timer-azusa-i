@@ -87,8 +87,8 @@ app.get('/', function(req, res) {
                         const errorMessage = document.createElement('p');
                         errorMessage.id = 'errorMessage';
                         errorMessage.textContent = "You need to fill in your name to begin.";
-                        errorMessage.style.color = 'red';
-                        errorMessage.style.fontWeight = 'bold';
+                        errorMessage.style.color = 'blue';
+                        errorMessage.style.fontWeight = 'bold';  // Make the message bold
             
                         // Clear any existing error message
                         messageContainer.innerHTML = '';
