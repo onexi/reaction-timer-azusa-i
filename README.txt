@@ -16,11 +16,32 @@ Note .gitignore is set to ignore node_modules
   - When the user clicks the "Stop" button after it turns red, a reaction time 
     will be measured and printed on the browser. Fastest reaction time and a history 
     of previous trials will be shown
-  - User cannot start this challenge unless user inputs their name.
-    If the user clicks "Start Challenge" button without inputting their name,
+  - User cannot start this challenge unless user enters their name.
+    If the user clicks "Start Challenge" button without entering their name,
     user will be notified by an error message 
   - User should not click "Stop" button until it turns red (i.e. should not be cheating).
     If the user clicks "Stop" button before it turns red, the user will be disqualified
 
 [HOW IT WORKS]
-
+1. A web page is served with the following form using app.get('/', function(req, res) {}
+   a. HTML is sent from server to client using res.send(). HTML specifies the content and
+      formatting of web page
+   b. JavaScript in <script> defines the calculations for reaction time.
+      Clicking "Start Challenge" button triggers the "Stop" button to change color from 
+      gray to red, after a random number of seconds (between 5 and 10 sec).
+      Reaction time is calculated as the lag between the moment "Stop" button turns red
+      to when it is clicked by the user
+   c. If name is empty when "Start Challenge" is clicked, an error message will appear
+   d. If "Stop" button is clicked before it turns red, user will be disqualified.
+      This is done by monitoring the color of "Stop" button and disqualifying the user
+      if "Stop" button is clicked when it is still gray
+   e. Finally, after the reaction time has been calculated, the form is submitted to 
+      the server using form.submit() 
+2. Server handles form submission using app.post('/input', function(req, res){
+   a. Name and reaction time are added to array "users" stored on server
+   b. Once appending is done, it redirects back to the root URL
+3. Root URL reloads with appended name and reaction time
+   a. Using array "users", the fastest reaction time is stored in another array "topUsers"
+      which is also on the server
+   b. The web page is again served with the form, but this time displaying the fastest 
+      reaction time and the history of reaction times
