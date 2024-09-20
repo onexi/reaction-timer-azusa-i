@@ -122,6 +122,7 @@ app.get('/', function(req, res) {
                             console.log("Button turned red! Timer started.");  
                         } else {
                             console.log("Premature click occurred, not turning the button red.");
+                            clearTimeout();  // Clear the timeout
                             return;  // Prevent the color change if a premature click occurred
                         }
                     }, randomDelay);
