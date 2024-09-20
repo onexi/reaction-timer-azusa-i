@@ -86,7 +86,7 @@ app.get('/', function(req, res) {
                         // Display error message if the name is not provided
                         const errorMessage = document.createElement('p');
                         errorMessage.id = 'errorMessage';
-                        errorMessage.textContent = "You need to fill in your name to begin.";
+                        errorMessage.textContent = "You need to fill in your name to begin";
                         errorMessage.style.color = 'blue';
                         errorMessage.style.fontWeight = 'bold';  // Make the message bold
             
