@@ -1,6 +1,6 @@
 // This will be the node Express server that will serve up your app
-const express = require('express');
-const bodyParser = require('body-parser');
+const express = require('express');  // Load the Express framework
+const bodyParser = require('body-parser');  // Parses incoming request bodies
 const app = express();
 const PORT = process.env.PORT || 3030;
 const path = require('path');
