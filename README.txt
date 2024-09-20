@@ -6,3 +6,21 @@ The above uses package.json to build the project
 Note .gitignore is set to ignore node_modules
 
 
+[GOAL]
+  - Create a reaction timer app that records the fastest reaction time
+  - Implement a mechanism that avoids user trying to cheat by randomly clicking buttons
+
+[IMPLEMENTED FEATURES]
+  - After user inputs name and clicks "Start Challenge", "Stop" button will turn red
+    after a random number of seconds (between 5 and 10 sec)
+  - When the user clicks the "Stop" button after it turns red, a reaction time 
+    will be measured and printed on the browser. Fastest reaction time and a history 
+    of previous trials will be shown
+  - User cannot start this challenge unless user inputs their name.
+    If the user clicks "Start Challenge" button without inputting their name,
+    user will be notified by an error message 
+  - User should not click "Stop" button until it turns red (i.e. should not be cheating).
+    If the user clicks "Stop" button before it turns red, the user will be disqualified
+
+[HOW IT WORKS]
+
